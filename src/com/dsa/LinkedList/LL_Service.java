@@ -1,28 +1,27 @@
 package com.dsa.LinkedList;
 
-public class LL_Manager {
+public class LL_Service {
 
 	LL_node head = null;
 	
 	public void createLL(int n){
 		if(head == null) {
-			int count=0;
 			LL_node current = head;
 			
-			for (int i=0; i < n; i++) {
+			for (int count=1; count <= n; count++) {
 				LL_node newNode = new LL_node();
 				newNode.data = count;
 				
-				if(i==0) {
+				if(count==0) {
 					current = newNode;
 					head = current;
 				}else {
 					current.nextNode = newNode;
 					current = current.nextNode;
 				}
-				
-				count++;
 			}
+		}else{
+			System.out.println("Linked List already present. New List not created.");
 		}
 	}
 	
@@ -47,7 +46,8 @@ public class LL_Manager {
 	public void printList(){
 		LL_node current = head;
 		while(current != null) {
-			System.out.println("NODE DATA IS : " + current.data);
+			System.out.printf("""
+					NODE DATA IS : %s%n""", current.data);
 			current = current.nextNode;
 		}
 		
