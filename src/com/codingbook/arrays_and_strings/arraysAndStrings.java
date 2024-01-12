@@ -6,9 +6,14 @@ public class arraysAndStrings {
 	
 	public static void main(String[] args) {
 //		IsUnique("Tom Marvolo Riddle");
-		System.out.println(CheckPermutation("tom marvolo riddle","i am lordvoldemort"));
+//		System.out.println(CheckPermutation("tom marvolo riddle","i am lordvoldemort"));
+		System.out.println(URLify("Mr John Smith"));
 	}
-	
+
+	private static String URLify(String inputString) {
+		return inputString.replace(" ","%20");
+	}
+
 	private static boolean CheckPermutation(String string1, String string2) {
 
 		if(string1.length()!=string2.length())
