@@ -12,6 +12,31 @@ public class arraysAndStrings {
 //		System.out.println(URLify("Mr John Smith"));
 //		System.out.println(IsPalindromePermutation("Tact Coa"));
 //		System.out.println(OneAway("pale","bale"));
+		System.out.println(CompressString("aabbbcc"));
+	}
+
+	/**
+	 * Compress string using count of repeated characters
+	 * @param inputString
+	 * @return
+	 */
+	private static String CompressString(String inputString) {
+		StringBuilder sb=new StringBuilder();
+		char currentChar = inputString.charAt(0);
+		int count = 1;
+
+		for(int i=1;i<inputString.length();i++){
+			if(currentChar==inputString.charAt(i)){
+				count++;
+			}else {
+				sb.append(currentChar).append(count);
+				currentChar=inputString.charAt(i);
+				count=1;
+			}
+		}
+		sb.append(currentChar).append(count);
+
+		return inputString.length()>sb.length()? sb.toString(): inputString;
 	}
 
 	/**
@@ -31,7 +56,7 @@ public class arraysAndStrings {
 	}
 
 	private static boolean checkIfCharAppended(String longString, String shortString) {
-
+		//Approach 1
 		for (int i = 0; i < shortString.length(); i++) {
 			if (longString.charAt(i) != shortString.charAt(i)) {
 				String longStringWithoutChar = longString.substring(i+1);
@@ -40,6 +65,8 @@ public class arraysAndStrings {
 			}
 		}
 		return true;
+
+		//Approach 2
 	}
 
 	private static boolean checkIfCharReplaced(String string1, String string2) {
