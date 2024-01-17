@@ -53,10 +53,4 @@ public class LL_Service {
 		
 		System.out.println("--- END--- \n\n");
 	}
-	
-	
-	public static void main(String[] args) {
-		
-		
-	}
 }

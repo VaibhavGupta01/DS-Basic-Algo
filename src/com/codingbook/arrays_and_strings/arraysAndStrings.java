@@ -12,7 +12,99 @@ public class arraysAndStrings {
 //		System.out.println(URLify("Mr John Smith"));
 //		System.out.println(IsPalindromePermutation("Tact Coa"));
 //		System.out.println(OneAway("pale","bale"));
-		System.out.println(CompressString("aabbbcc"));
+//		System.out.println(CompressString("aabbbcc"));
+		int [][]m={{1,2,3,4},
+				{4,5,6,7},
+				{6,7,1,2},
+				{7,8,9,10}};
+		RotateMatrix(m);
+//		int [][]m={{1,0,3,6,7},
+//				{4,5,6,8,9},
+//				{7,8,9,1,0}};
+//		ZeroMatrix(m);
+	}
+
+	private static void ZeroMatrix(int[][] m) {
+		int rLen=m.length;
+		int cLen=m[0].length;
+		int i=0;
+		int j=0;
+		while(i<rLen && j<cLen){
+
+		}
+	}
+
+	private static void RotateMatrix(int[][] m){
+		int len=m.length;
+
+		int [][]rm = new int[len][len];
+
+		printMatrix(m);
+		System.out.println("\n");
+//		rm = RotateMatrix(len, m);
+//		printMatrix(rm);
+
+		// Approach 2 : Swap element index by index
+		RotateMatrixInPlace(m);
+		printMatrix(m);
+		System.out.println("\n");
+
+		RotateMatrixInPlace(m);
+		printMatrix(m);
+		System.out.println("\n");
+
+		RotateMatrixInPlace(m);
+		printMatrix(m);
+		System.out.println("\n");
+
+		RotateMatrixInPlace(m);
+		printMatrix(m);
+	}
+
+	public static void RotateMatrixInPlace(int[][] m) {
+		int i=0,j=0;
+		int end=m.length-1;
+		while(i<end && j<end){
+			for(int c=i;c<end;c++){
+				rotateIndex(m,i,c);
+			}
+			i++;
+			j++;
+			end--;
+		}
+	}
+	private static void rotateIndex(int[][] m, int i, int j) {
+		int len=m.length-1;
+
+		int t1= m[j][len-i];
+		m[j][len-i]=m[i][j]; //Top Right
+
+		int t2=m[len-i][len-j];
+		m[len-i][len-j]=t1;
+
+		t1=m[len-j][i];
+		m[len-j][i]=t2;
+
+		m[i][j]=t1;
+	}
+
+	private static int[][] RotateMatrix(int len, int[][] m) {
+		int[][] rm = new int[len][len];
+		for(int i = 0; i< len; i++){
+			for(int j = 0; j< len; j++){
+				rm[i][j]= m[(len -1)-j][i];
+			}
+		}
+		return rm;
+	}
+
+	private static void printMatrix(int[][] m) {
+		for(int i=0;i<m.length;i++){
+			for(int j=0;j<m.length;j++){
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+		}
 	}
 
 	/**
